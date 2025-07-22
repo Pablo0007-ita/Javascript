@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La mia pagina</title>
+</head>
+<body>
+    <script> 
+// 1) Cos'è una variabile
+// 2) Dichiarare una variabile (regole nome variabile)
+// 3) Inizializzare la variabile
+// 4) Differenza tra var e let
+// 5) Aggiornare la variabile
+// 6) Tipi di variabili: numeri, stringhe, boolean, array*, oggetti*
+// 7) Tipizzazione dinamica
+// 8) Costanti in Javascript
+
+    let nome = "Mario";
+    nome = 'luca';
+    console.log(nome);
+
+    let isOnline = true;
+    console.log(isOnline);
+
+    let collection = [1, 2, 3, 4, 5];
+    console.log(collection);
+
+    let classe4 = {
+        studenti : ["Mario", "Luca", "Giulia"]
+    };
+    console.log(classe4.studenti[0]);
+
+    let
+    persona={ nome:"Mario",
+        cognome : "Rossi",
+        codiceFiscale : "RSSMRA85A01H501Z",
+        isOnline : true,
+        indirizzo : {
+            via: "Via Roma", 
+            numero: 10,
+            citta: "Roma"
+        }
+}
+    console.log(persona.indirizzo.via);
+    // 8) Costanti in Javascript con messagio errore index
+    const PI = 3.14;
+    PI='mario';
+    console.log(PI);
+
+
+
+    </script>
+    
+    </body>
+</html>
+    </footer>
