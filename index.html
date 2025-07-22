@@ -7,41 +7,28 @@
 </head>
 <body>
     <script> 
-/*
-1) Creare una stringa
-2) Singoli apici (quotes) vs doppi apici
-3) Fare l'escape dei caratteri in una stringa
-4) Concatenare stringhe
-5) Numeri vs stringhe
-6) Template literals `` 
+/*  
+    1) Una stringa è un oggetto
+    2) Lunghezza di una stringa
+    3) Prendere un carattere specifico
+    4) Prendere una parte di stringa: indexOf slice
+    5) Cambiare il Case di una stringa toUpperCase tolowerCase
+    6) Cambiare parti di una stringa replace
 */
-let nome = "Paolo";
-let saluto = 'Ciao sono ' + nome;
-console.log(saluto); // Ciao Paolo
-
-let nomeStringa='56' +56;
-console.log(nomeStringa); // 5656
-
-let numero = 56;
-let  somma = '56' + numero.toString();   
-console.log(somma); // 5656
-
-
-/*I template literals (o template string) sono un modo moderno di scrivere stringhe in JavaScript, racchiudendole tra backtick (`) invece che tra apici singoli ' o doppi ".
-il simbolo si fa alt + 96 su Windows o ` su Mac.
-
-Vantaggi:
-Puoi andare a capo senza usare \n
-Puoi inserire variabili o espressioni direttamente nella stringa usando ${...}*/
-
-// Esempio: 
-let nomeMio = "Paolo";
-let anni = 30;
-let frase = `Ciao, sono ${nomeMio} e ho ${anni} anni.`;
-console.log(frase); // Ciao, sono Paolo e ho 30 anni.
-    document.body.innerHTML = testo;
+let str = "Ciao, mondo eccomi qua!";
+console.log(str.length); // Stampa la stringa originale 12
+console.log(str.length-1); // Stampa la stringa originale 11
+console.log(str[0]); // Stampa il primo carattere 'C'
+console.log(str.slice(0, 4)); // Stampa 'Ciao'
+console.log(str.indexOf("mondo")); // Stampa 6
+let indexOfMondo = str.indexOf("mondo");
+console.log(str.slice(indexOfMondo)); // Stampa 'mondo eccomi qua
+console.log(str.toUpperCase()); // Stampa 'CIAO, MONDO ECCOMI QUA!'
+console.log(str.toLowerCase()); // Stampa 'ciao, mondo eccomi qua!'
+console.log(str.replace("mondo", "universo")); // Stampa 'Ciao, universo eccomi qua!'
+    
     </script>
     
     </body>
 </html>
-    </footer>
+    
