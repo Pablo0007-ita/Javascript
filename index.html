@@ -7,48 +7,45 @@
 </head>
 <body>
     <script> 
-// 1) Cos'è una variabile
-// 2) Dichiarare una variabile (regole nome variabile)
-// 3) Inizializzare la variabile
-// 4) Differenza tra var e let
-// 5) Aggiornare la variabile
-// 6) Tipi di variabili: numeri, stringhe, boolean, array*, oggetti*
-// 7) Tipizzazione dinamica
-// 8) Costanti in Javascript
+/*
 
-    let nome = "Mario";
-    nome = 'luca';
-    console.log(nome);
+1) Tipi di numeri: interi, float, double, binary, octal, esadecimali
+2) E' tutto number
+3) Esempio di metodo per numeri toFixed()
+4) Convertire in numero Number()
+5) Operatori + - * / % **
+6) Precedenza degli operatori
+7) Operatori di incremento e decremento ++ --
+8) Operatori di assegnazione = += -= /= *=
+9) Operatori di comparazione === !== ( == != ) < > <= >= 
 
-    let isOnline = true;
-    console.log(isOnline);
+*/ 
+let numeroIntero = 42; // Intero
+let numeroFloat = 3.14; // Float    
+let numeroDouble = 2.718281828459045; // Double
+let numeroBinario = 0b1010; // Binario
+let numeroOttale = 0o12; // Ottale
+let numeroEsadecimale = 0x2A; // Esadecimale 
+console.log(numeroIntero); // 42
 
-    let collection = [1, 2, 3, 4, 5];
-    console.log(collection);
+const numero = 42 % 2; // Resto della divisione per 2
+console.log(numero); // 0
 
-    let classe4 = {
-        studenti : ["Mario", "Luca", "Giulia"]
-    };
-    console.log(classe4.studenti[0]);
+const numero1 = 43 % 2;
+console.log(numero1); // 1
 
-    let
-    persona={ nome:"Mario",
-        cognome : "Rossi",
-        codiceFiscale : "RSSMRA85A01H501Z",
-        isOnline : true,
-        indirizzo : {
-            via: "Via Roma", 
-            numero: 10,
-            citta: "Roma"
-        }
-}
-    console.log(persona.indirizzo.via);
-    // 8) Costanti in Javascript con messagio errore index
-    const PI = 3.14;
-    PI='mario';
-    console.log(PI);
+const numero2 ='42' +3 ;   //423 non 5 
+console.log(numero2); //423 non 5 
+ 
+let numero3 = 42
+numero3 += 8; // Aggiunge 8 a numero3
+console.log(numero3); // 50
 
-
+// Operatori di comparazione === !== ( == != ) < > <= >=
+let a = 5;
+let b = '5';    
+console.log(a == b); // true (valore uguale)
+console.log(a === b); // false (tipo diverso)
 
     </script>
     
