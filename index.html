@@ -5,61 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La mia pagina</title>
 </head>
+<style>
+    input{
+        display: block;
+        margin-bottom: 20px;
+    }
+    button {
+        background-color: #4CAF50; /* Verde */
+        color: white; /* Testo bianco */
+        padding: 10px 20px; /* Spaziatura interna */
+        border: none; /* Nessun bordo */
+        border-radius: 5px; /* Angoli arrotondati */
+        cursor: pointer; /* Puntatore a mano */
+    }
+</style>
 <body>
+  
+</button>
+    <!--
+1) Creare un funzione basica
+2) Usarla nel codice
+3) Aggiungere parametri
+4) Parametri di default -->
+<input type="text" nome="name" placeholder="Inserisci il tuo nome">
+<button>saluta</button>
+<h1>nessun saluto</h1>
    <script> 
 
-// 1) Blocchi di codici riutilizzabili
-// 2) Funzioni del browser string.replace, array.join. math.random
-// 3) Funzioni e metodi
-// 4) Invocare una funzione
-// 5) Funzioni anonime
-// 6) Scope e conflitti (scope globale e scope locale)
-// 7) Innestare funzioni
+let button = document.querySelector('button');
+let title = document.querySelector('h1');
+let nome = document.querySelector('input');
 
-
-let nome = 'Luca';
-
-function ciao() {
-    let cognome = 'Rossi';
-    console.log('ciao: ', cognome);
-    hello(cognome);
+function saluta(name = 'Marco'){
+title. innerHTML = `Ciao ${name}` ;
 }
-
-function hello(name) {
-    console.log('hello: ', name);
-    // RIMUOVI la chiamata ricorsiva a ciao() per evitare loop infinito
-}
-// Avvia il flusso chiamando ciao una sola volta
-ciao();
-;
-
-function generaTabella(){
-generaHeader();
-generaRighe();
-generaFooter();
-console.log('tabella generata');
-}
-
-function generaFooter(){
-console.log('footer generato');
-}
-function generaRighe(){
-console.log('righe generate');
-}
-function generaHeader(){
-console.log('header generata');
-}
-
-generaTabella()
-
-
+button.addEventListener('click', ()=>{
+saluta(nome.value);
+});
 </script>
 
-    </script>
-    </body>
-    
-    
-    </script>
     
     </body>
 </html>
