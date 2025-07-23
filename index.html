@@ -22,29 +22,33 @@
 <body>
   
 </button>
-    <!--
+
+<!-- 
 1) Creare un funzione basica
 2) Usarla nel codice
 3) Aggiungere parametri
-4) Parametri di default -->
-<input type="text" nome="name" placeholder="Inserisci il tuo nome">
-<button>saluta</button>
-<h1>nessun saluto</h1>
-   <script> 
+4) Parametri di default 
+-->
 
+<input type="text" name="numero" placeholder="inserisci un numero">
+<button>Calcola cubo !</button>
+<h1> -</h1>
+
+<script>
 let button = document.querySelector('button');
 let title = document.querySelector('h1');
-let nome = document.querySelector('input');
+let numero = document.querySelector('input');
 
-function saluta(name = 'Marco'){
-title. innerHTML = `Ciao ${name}` ;
+function cubo(number){
+    let result = number * number * number;
+    console.log(result);
+    return result;
 }
-button.addEventListener('click', ()=>{
-saluta(nome.value);
-});
-</script>
 
-    
-    </body>
+button.addEventListener('click', () => 
+    title.innerHTML = cubo(numero.value)
+);
+</script>
+</body>
 </html>
     
