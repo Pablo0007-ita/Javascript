@@ -7,72 +7,56 @@
 </head>
 <body>
     <script> 
-//   
+// 1) Introduzione (esempio pratico libro)
+// 2) Perchè ci servono i loop (esempio codice log)
+// 3) loop for
+// 4) Uscire dai loop con break
+// 5) Saltare l'iterazione con continue
+// 6) while e do while
 
-// 1) Cosa sono le condizioni
-// 2) if else statement
-// 3) else if
-// 4) Ripasso sugli operatori comparativi === !== == != < > <= >=
-// 5) Innestare if
-// 6) Operatori logici AND OR e NOT
-// 7) Switch statement
-// 8) Ternary operator (condizione) ? si : no
+ let array = [10, 23, 38, 47, 59];
+    for (let i = 0; i < array.length; i++) {
+     console.log(array[i]);
+    }
 
-//
-        let nome = "Paolo";
-        let eta = 30;
-
-        if (nome =='Paolo') {
-            console.log("Ciao Paolo");
-        }else {
-            console.log("Ciao sconosciuto");
-        }//va bene perché sono uguali, entrambi sono stringhe
-
-        if (eta =='30') {
-            console.log("ok");
-        }else {
-            console.log("non va bene"); 
-        }   //non va bene perché non sono uguali, uno è stringa e l'altro è numero
-        if (eta >= 30) {
-            console.log("ok");
-        }else {
-            console.log("non va bene"); 
-        } 
-        if (eta >= 30) {
-            if (eta % 2 == 0) {
-                console.log("ok, è pari");
-            }else {
-                console.log("ok, è dispari");
-            }}
-
-
-        if (eta >30 ||eta % 2== 0) {
-            console.log("ok, è pari");
-        }else {
-            console.log("ok, è dispari");
+    for (let i = 0; i < array.length; i++) {
+        if (i === 5) {
+            break; // esce dal loop quando i è 5
         }
+        console.log(i);
+    } 
 
-        if (!(nome=='Paolo')) {
-            console.log("Ciao sconosciuto");
-        }else {
-            console.log("Ciao Paolo");
+    for (let i = 0; i < array.length; i++) {
+        if (i % 2 === 0) {
+            continue; // salta l'iterazione se i è pari
         }
+        console.log(i);
+    }
+    let j = 0;
+    while (j < array.length) {
+        console.log(array[j]);
+        j++;
+    }
+    
+    
 
+    let arrayy = [22,13,34,56,99,101];
 
-        switch (nome) {
-            case 'Paolo':
-                console.log("Ciao Paolo");
-                break;
-            case 'Mario':
-                console.log("Ciao Mario");
-                break;
-            default:
-                console.log("Ciao sconosciuto");
-        }
-        // Esempio di ternary operator
-        let numero = 5;
-        let nome1 = (numero>20) ? "Paolo" : "Mario";
-        console.log(nome1); // Stampa "Mario" perché 5 non è maggiore di
+    let i = 0;
+    while(i<arrayy.length){
+    console.log('while: ', arrayy[i]);
+    i++;
+    }
+    let k = 0;
+    do{
+    console.log('do while: ', arrayy[k]);
+    k++;
+    }
+    while(k<arrayy.length)
+
+    </script>
+    </body>
+    
     
     </script>
     
