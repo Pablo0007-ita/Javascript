@@ -7,25 +7,72 @@
 </head>
 <body>
     <script> 
-/*  
-    1) Una stringa è un oggetto
-    2) Lunghezza di una stringa
-    3) Prendere un carattere specifico
-    4) Prendere una parte di stringa: indexOf slice
-    5) Cambiare il Case di una stringa toUpperCase tolowerCase
-    6) Cambiare parti di una stringa replace
-*/
-let str = "Ciao, mondo eccomi qua!";
-console.log(str.length); // Stampa la stringa originale 12
-console.log(str.length-1); // Stampa la stringa originale 11
-console.log(str[0]); // Stampa il primo carattere 'C'
-console.log(str.slice(0, 4)); // Stampa 'Ciao'
-console.log(str.indexOf("mondo")); // Stampa 6
-let indexOfMondo = str.indexOf("mondo");
-console.log(str.slice(indexOfMondo)); // Stampa 'mondo eccomi qua
-console.log(str.toUpperCase()); // Stampa 'CIAO, MONDO ECCOMI QUA!'
-console.log(str.toLowerCase()); // Stampa 'ciao, mondo eccomi qua!'
-console.log(str.replace("mondo", "universo")); // Stampa 'Ciao, universo eccomi qua!'
+//   
+
+// 1) Cosa sono le condizioni
+// 2) if else statement
+// 3) else if
+// 4) Ripasso sugli operatori comparativi === !== == != < > <= >=
+// 5) Innestare if
+// 6) Operatori logici AND OR e NOT
+// 7) Switch statement
+// 8) Ternary operator (condizione) ? si : no
+
+//
+        let nome = "Paolo";
+        let eta = 30;
+
+        if (nome =='Paolo') {
+            console.log("Ciao Paolo");
+        }else {
+            console.log("Ciao sconosciuto");
+        }//va bene perché sono uguali, entrambi sono stringhe
+
+        if (eta =='30') {
+            console.log("ok");
+        }else {
+            console.log("non va bene"); 
+        }   //non va bene perché non sono uguali, uno è stringa e l'altro è numero
+        if (eta >= 30) {
+            console.log("ok");
+        }else {
+            console.log("non va bene"); 
+        } 
+        if (eta >= 30) {
+            if (eta % 2 == 0) {
+                console.log("ok, è pari");
+            }else {
+                console.log("ok, è dispari");
+            }}
+
+
+        if (eta >30 ||eta % 2== 0) {
+            console.log("ok, è pari");
+        }else {
+            console.log("ok, è dispari");
+        }
+
+        if (!(nome=='Paolo')) {
+            console.log("Ciao sconosciuto");
+        }else {
+            console.log("Ciao Paolo");
+        }
+
+
+        switch (nome) {
+            case 'Paolo':
+                console.log("Ciao Paolo");
+                break;
+            case 'Mario':
+                console.log("Ciao Mario");
+                break;
+            default:
+                console.log("Ciao sconosciuto");
+        }
+        // Esempio di ternary operator
+        let numero = 5;
+        let nome1 = (numero>20) ? "Paolo" : "Mario";
+        console.log(nome1); // Stampa "Mario" perché 5 non è maggiore di
     
     </script>
     
