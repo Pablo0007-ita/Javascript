@@ -20,63 +20,27 @@
     }
 </style>
 <body>
-    <!--
-1) Nota: ho saltato i prototipi
-2) Definiamo il costruttore di una classe fighia
-3) Come ereditare da un costruttore senza parametri
-4) Sovrascriviamo un metodo
-5) EcmaScript 2015 Classi
-6) Ereditarietà nelle classi
-7) Getters and Setters
+ <!-- 1) Cos'e JSON
+2) Struttura
+3) Array come json
+4) Note: json è una stringa dati con solo proprietà no metodi
+5) Note: le stringhe sono necessariamente contenute in double quotes ""
+6) Note: a differenza degli oggetti js le proprietà vanno contenute in ""
+7) Note: json può contenere: array, obj, string, number, boolean
+8) Otteniamo un json
 -->
-    <script>
+<script>
+let requestURL = './classe.json';
+let request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
 
-function Persona(nome, cognome, eta, genere, interessi) {
-this.nome = nome;
-this. cognome = cognome;
-this.eta = eta;
-this.genere = genere;
-this.interessi = interessi;
-this.saluta = function () {
-console.log(`Ciao sono ${this.nome}`);  
-};
-}
-
-function Insegnante(nome, cognome, eta, genere, interessi, materia) {
-Persona.call(this, nome, cognome, eta, genere, interessi);    
-this.materia = materia;
-
-this.saluta = function () {
-console.log( `Buongiorno sono ${this.nome} ${this.cognome} `);}
-};
-const insegnante = new Insegnante('Anna', 'Blu', 32, 'Femmina', ['Netflix'], 'Storia');
-console.log(insegnante);
-insegnante.saluta();
-
-
-
-class Insegnante1 extends Persona {
-constructor(nome, cognome, eta, genere, interessi, materia) {
-super(nome, cognome, eta, genere, interessi);
-
-this.materia = materia;
-}
-
-get materia() {         // Getter per materia _materia underscore x i get e set
-return this ._materia;
-}
-
-set materia( nuovaMateria) {
- this._materia=nuovaMateria;
-}
-riprendiAlunno(nomeAlunno)  {
-console.log(`${nomeAlunno} in questa classe non si mangia`);
-}}
-insegnante1 = new Insegnante1('Anna', 'Blu', 32, 'Femmina', ['Netflix'], 'Storia');
-console.log(insegnante1);    
-insegnante1.riprendiAlunno('Marco');
-</script>
-</body>
+request.onload = function () {
+const classe = request.response;
+console.log(classe);   
+console.log(classe.insegnanti[1].cognome); // Stampa il cognome del secondo insegnante
+} 
 
 </script>
 </body>
