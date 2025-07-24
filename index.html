@@ -20,27 +20,32 @@
     }
 </style>
 <body>
- <!-- 1) Cos'e JSON
-2) Struttura
-3) Array come json
-4) Note: json è una stringa dati con solo proprietà no metodi
-5) Note: le stringhe sono necessariamente contenute in double quotes ""
-6) Note: a differenza degli oggetti js le proprietà vanno contenute in ""
-7) Note: json può contenere: array, obj, string, number, boolean
-8) Otteniamo un json
--->
-<script>
-let requestURL = './classe.json';
-let request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
 
-request.onload = function () {
-const classe = request.response;
-console.log(classe);   
-console.log(classe.insegnanti[1].cognome); // Stampa il cognome del secondo insegnante
-} 
+<button id="date">Vai</button>
+<button id="alert">Alert</button>
+
+<script>
+const btn = document.querySelector('#date');
+const btnAlert = document.querySelector('#alert');
+btn.addEventListener('click', () => {
+    let myDate;
+    for (let i = 0; i < 10000000; i++){
+        let date = new Date();
+        myDate = date
+    }
+
+    console.log(myDate);
+
+    let pElem = document.createElement('p');
+    pElem.textContent = 'This is a newly-added paragraph.';
+    document.body.appendChild(pElem);
+});
+    btnAlert.addEventListener('click', () =>{
+    console.log('Eccomi');
+});
+
+</script>
+</body>
 
 </script>
 </body>
