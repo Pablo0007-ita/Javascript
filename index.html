@@ -20,71 +20,60 @@
     }
 </style>
 <body>
-<!-- 
-1) Cosa sono le promise
-2) Il problema con le callback
-3) Il miglioramento tramite promise
-4) Sintassi delle promise
-5) Risposta in caso di fallimento
-6) Chaining
-7) Costruire promise custom
-8) Rifiutare una promise custom
+<!--
+    1) Introduzione
+    2) Async
+    3) Await
+    4) Riscriviamo le promise con async/await
+    5) Come funzione
+    6) Gestire gli errori try{}catch(e){}
+    7) Promise.all()"
+    8) Async e await nelle classi*
 -->
-
   
     <script>
-                                    //promise concatenate
+        async function hello(){
+            return ('hello');
+        }
+        console.log(hello());
 
-        // fetch('coffee.jpg')                          
-        // .then(response => {
-        // return response.blob();
-        // })
-        // .then(myBlob => {
-        // let objectURL = URL.createObjectURL(myBlob);
-        // let image = document. createElement('img');
-        // image.src = objectURL;
-        // document.body.appendChild(image);
-        // })
-        // .catch(e => {
-        // console.log('There has been a problem with your fetch operation: ' + e.message);
-        // });
+        hello().then((value) => {       //oppure hello().then(consel.log); 
+            console.log(value);
+        });
 
-                                //promise con funzione anonima
-
-        // let timeoutPromise = new Promise((resolve, reject) => {    
-        // setTimeout(function () {
-        // resolve('Success!');
-        // }, 2000);
-        // });
-
-                                        //promise generica
-        //     resolve('Success 2!');
-        // let timeoutPromise2 = new Promise((resolve, reject) => {   //promise generica
-        //     resolve('Success 2!');
-        // });
-
-        function timeoutPromise(message, interval) {
-        return new Promise((resolve, reject) => {
-            if (message === '' || typeof message !== 'string') {
-                reject('Message is empty or not a string');
-            } else if (interval < 0 || typeof interval !== 'number') {
-                reject('Interval is negative or not a number');
-            } else {
-            setTimeout(function () {
-            resolve(message);
-            }, interval);
-        }   
-    });
-};
-
-    timeoutPromise('', 1000)
-        .then(message => {
-        alert(message);
+        async function hello(){
+            return greeting = await Promise.resolve('hello');
+            console.log(greeting);
+        }
+        //codice del commit precedente
+        fetch('coffee.jpg')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.blob();
+        })
+        .then(myBlob => {
+            let objectURL = URL.createObjectURL(myBlob);
+            let image = document.createElement('img');
+            image.src = objectURL;
+            document.body.appendChild(image);
         })
         .catch(e => {
-        console.log('Error: ' + e);
-    });
-    
+            console.log('There has been a problem with your fetch operation: ' + e.message);
+        });
+
+        async function myFetch(){
+        let response = await fetch('coffee.jpg');
+        let myBlob = await response.blob();
+        }
+        
+        //          await corrisponde a tutto il .then() della promise
+        //  .then(response => {
+        //   if (!response.ok) {
+        //   throw new Error(`HTTP error! status: ${response.status}`);
+        //   }
+        //    return response.blob();
 
 </script>
 </body>
