@@ -20,34 +20,48 @@
     }
 </style>
 <body>
-  
-</button>
+
 
 <!-- 
-1) Creare un funzione basica
-2) Usarla nel codice
-3) Aggiungere parametri
-4) Parametri di default 
--->
+1) Cosa sono gli eventi
+2) Event handler button.onclick
+3) Inline event handlers
+4) AddEventListener() e RemoveEventListener()
+5) Oggetto Event
+6) e.preventDefault()
+7) Event bubblig e capturing (stop propagation)
+8) Event delegation (accennare)
+     -->
 
-<input type="text" name="numero" placeholder="inserisci un numero">
-<button>Calcola cubo !</button>
-<h1> -</h1>
+<form>
+<div>
+<label for="fname">Nome: </label>
+<input id="fname" type="text">
+</div>
+<div>
+<label for="lname">Cognome: </label>
+<input id="lname" type="text">
+</div>
+<div>
+<input id="submit" type="submit">
+</div>
+</form>
+<p></p>
+
 
 <script>
-let button = document.querySelector('button');
-let title = document.querySelector('h1');
-let numero = document.querySelector('input');
+const form = document.querySelector('form'); // seleziona il primo <form>
+const nome = document.getElementById('fname');  // seleziona l'input con id "fname"
+const cognome = document.getElementById('lname');   // seleziona l'input con id "lname"
+const paragrafo = document.querySelector('p');  // seleziona il primo <p>
 
-function cubo(number){
-    let result = number * number * number;
-    console.log(result);
-    return result;
+form.onsubmit = function (e) { //  e = event -  .onsubmit quella funzione viene eseguita ogni volta che l’utente prova a inviare il form (ad esempio cliccando su un pulsante "submit").
+if (nome.value===''||cognome.value === ''){
+    e.preventDefault();
+    paragrafo.textContent = 'You need to fill in both names!';
+}
 }
 
-button.addEventListener('click', () => 
-    title.innerHTML = cubo(numero.value)
-);
 </script>
 </body>
 </html>
