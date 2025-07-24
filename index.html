@@ -20,36 +20,61 @@
     }
 </style>
 <body>
-<!--
+    <!--
+1) Nota: ho saltato i prototipi
+2) Definiamo il costruttore di una classe fighia
+3) Come ereditare da un costruttore senza parametri
+4) Sovrascriviamo un metodo
+5) EcmaScript 2015 Classi
+6) Ereditarietà nelle classi
+7) Getters and Setters
+-->
+    <script>
 
-1) Perchè e cos'e OOP (object oriented programming)
-2) Definire un object template (ref doc)
-3) Costruttori e instanze di un oggetto (esempio) -->
-
-<script>
 function Persona(nome, cognome, eta, genere, interessi) {
 this.nome = nome;
-this.cognome = cognome;
+this. cognome = cognome;
 this.eta = eta;
 this.genere = genere;
 this.interessi = interessi;
-this.bio = function(){
-console.log(`${this.nome} ${this.cognome} è
-${(this.genere == 'Maschio') ? 'un ragazzo' : 'una ragazza'} di ${this.eta} anni
-a cui piace ${this.interessi.join(', ')}`);
-};
-this.saluta = function(){
-console.log(`Ciao sono ${this.nome}`);
+this.saluta = function () {
+console.log(`Ciao sono ${this.nome}`);  
 };
 }
 
-const persona1 = new Persona('Paolo', 'Rossi', 30, 'Maschio', ['programmazione', 'sport']);
-const persona2 = new Persona('Maria', 'Bianchi', 25, 'Femmina', ['arte', 'musica']);
-console.log(persona1);
-console.log(persona2); 
- persona1.saluta();
- persona2.bio();
+function Insegnante(nome, cognome, eta, genere, interessi, materia) {
+Persona.call(this, nome, cognome, eta, genere, interessi);    
+this.materia = materia;
 
+this.saluta = function () {
+console.log( `Buongiorno sono ${this.nome} ${this.cognome} `);}
+};
+const insegnante = new Insegnante('Anna', 'Blu', 32, 'Femmina', ['Netflix'], 'Storia');
+console.log(insegnante);
+insegnante.saluta();
+
+
+
+class Insegnante1 extends Persona {
+constructor(nome, cognome, eta, genere, interessi, materia) {
+super(nome, cognome, eta, genere, interessi);
+
+this.materia = materia;
+}
+
+get materia() {         // Getter per materia _materia underscore x i get e set
+return this ._materia;
+}
+
+set materia( nuovaMateria) {
+ this._materia=nuovaMateria;
+}
+riprendiAlunno(nomeAlunno)  {
+console.log(`${nomeAlunno} in questa classe non si mangia`);
+}}
+insegnante1 = new Insegnante1('Anna', 'Blu', 32, 'Femmina', ['Netflix'], 'Storia');
+console.log(insegnante1);    
+insegnante1.riprendiAlunno('Marco');
 </script>
 </body>
 
