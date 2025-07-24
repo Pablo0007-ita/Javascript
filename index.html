@@ -20,40 +20,36 @@
     }
 </style>
 <body>
-<Doay>
+<!--
 
-<!-- 
-
-1) Cos'è un oggetto, proprieta, metodi
-2) Creare un oggetto, leggere proprietà
-3) Dot notation e bracket notation
-4) Aggiornare un oggetto
-5) La parola chiave this
-
- -->
+1) Perchè e cos'e OOP (object oriented programming)
+2) Definire un object template (ref doc)
+3) Costruttori e instanze di un oggetto (esempio) -->
 
 <script>
-    const chiave='indirizzo';
-const persona = {
-nome: 'Luca',
-cognome: 'Rossi',
-genere: 'Maschio',
-eta: 25,
-interessi: ['snowboard', 'basket', 'picnic al parco'],
-indirizzo: {
-via: 'Piazza Roma',
-cap: '09872',
-provincia: 'MI',
-citta: 'Milano'
-},
-saluta: function(){
-console.log( `Ciao sono ${persona.nome}`)
-console.log( `Ciao sono ${this.nome}`) //this si riferisce all'oggetto corrente (persona)
-}
+function Persona(nome, cognome, eta, genere, interessi) {
+this.nome = nome;
+this.cognome = cognome;
+this.eta = eta;
+this.genere = genere;
+this.interessi = interessi;
+this.bio = function(){
+console.log(`${this.nome} ${this.cognome} è
+${(this.genere == 'Maschio') ? 'un ragazzo' : 'una ragazza'} di ${this.eta} anni
+a cui piace ${this.interessi.join(', ')}`);
 };
-persona.saluta(); //chiamata al metodo saluta
-console.log(persona[`interessi`][0]); //bracket notation
-console.log(persona.indirizzo.citta); //dot notation
+this.saluta = function(){
+console.log(`Ciao sono ${this.nome}`);
+};
+}
+
+const persona1 = new Persona('Paolo', 'Rossi', 30, 'Maschio', ['programmazione', 'sport']);
+const persona2 = new Persona('Maria', 'Bianchi', 25, 'Femmina', ['arte', 'musica']);
+console.log(persona1);
+console.log(persona2); 
+ persona1.saluta();
+ persona2.bio();
+
 </script>
 </body>
 
