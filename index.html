@@ -20,30 +20,71 @@
     }
 </style>
 <body>
-<!--
-    1) setTimeout(funzione, tempo di attesa) e clearTimeout()
-    2) setInterval() e clearInterval()
+<!-- 
+1) Cosa sono le promise
+2) Il problema con le callback
+3) Il miglioramento tramite promise
+4) Sintassi delle promise
+5) Risposta in caso di fallimento
+6) Chaining
+7) Costruire promise custom
+8) Rifiutare una promise custom
 -->
-    <button> vai</button>
-    <p id="demo"></p>
-    <script>// let prova = setTimeout(saluta, 5000);
-const btn = document.querySelector('button');
 
-// function saluta(){
-// alert('ciao sono in timeout');
-// }
+  
+    <script>
+                                    //promise concatenate
 
-btn.addEventListener('click', ()=>{
-clearInterval(createClock);
+        // fetch('coffee.jpg')                          
+        // .then(response => {
+        // return response.blob();
+        // })
+        // .then(myBlob => {
+        // let objectURL = URL.createObjectURL(myBlob);
+        // let image = document. createElement('img');
+        // image.src = objectURL;
+        // document.body.appendChild(image);
+        // })
+        // .catch(e => {
+        // console.log('There has been a problem with your fetch operation: ' + e.message);
+        // });
+
+                                //promise con funzione anonima
+
+        // let timeoutPromise = new Promise((resolve, reject) => {    
+        // setTimeout(function () {
+        // resolve('Success!');
+        // }, 2000);
+        // });
+
+                                        //promise generica
+        //     resolve('Success 2!');
+        // let timeoutPromise2 = new Promise((resolve, reject) => {   //promise generica
+        //     resolve('Success 2!');
+        // });
+
+        function timeoutPromise(message, interval) {
+        return new Promise((resolve, reject) => {
+            if (message === '' || typeof message !== 'string') {
+                reject('Message is empty or not a string');
+            } else if (interval < 0 || typeof interval !== 'number') {
+                reject('Interval is negative or not a number');
+            } else {
+            setTimeout(function () {
+            resolve(message);
+            }, interval);
+        }   
     });
-function displayTime() {
-let date = new Date();
-let time = date.toLocaleTimeString();
-document.getElementById('demo').textContent = time;
+};
 
-}
-
-const createClock = setInterval(displayTime, 1000);
+    timeoutPromise('', 1000)
+        .then(message => {
+        alert(message);
+        })
+        .catch(e => {
+        console.log('Error: ' + e);
+    });
+    
 
 </script>
 </body>
