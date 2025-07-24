@@ -20,35 +20,31 @@
     }
 </style>
 <body>
+<!--
+    1) setTimeout(funzione, tempo di attesa) e clearTimeout()
+    2) setInterval() e clearInterval()
+-->
     <button> vai</button>
-    <script>
-// function loadAsset(url, type, callback) {
-//     let xhr = new XMLHttpRequest();
-//     xhr.open('GET', url);
-//     xhr.responseType = type;
+    <p id="demo"></p>
+    <script>// let prova = setTimeout(saluta, 5000);
+const btn = document.querySelector('button');
 
-//     xhr.onload = function () {
-//     callback(xhr.response);
-//     };
-// xhr.send();
+// function saluta(){
+// alert('ciao sono in timeout');
 // }
 
-// function displayImage(blob){
-// let objectURL = URL.createObjectURL(blob);
+btn.addEventListener('click', ()=>{
+clearInterval(createClock);
+    });
+function displayTime() {
+let date = new Date();
+let time = date.toLocaleTimeString();
+document.getElementById('demo').textContent = time;
 
-// let image = document.createElement('img');
-// image.src = objectURL;
-// document.body.appendChild(image);}
-// loadAsset('https://ak.picdn.net/shutterstock/videos/11773709/thumb/10.jpg', 'blob', displayImage);
+}
 
-fetch('classe.json').then(function (response) {
-return response.json();
-}).then(function (json) {
-classe = json;
-console.log('Dati: ', classe);
-}).catch(function (err) {
-console.log('Fetch problem: ' + err.message);
-});
+const createClock = setInterval(displayTime, 1000);
+
 </script>
 </body>
 
