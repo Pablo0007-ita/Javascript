@@ -20,47 +20,42 @@
     }
 </style>
 <body>
-
+<Doay>
 
 <!-- 
-1) Cosa sono gli eventi
-2) Event handler button.onclick
-3) Inline event handlers
-4) AddEventListener() e RemoveEventListener()
-5) Oggetto Event
-6) e.preventDefault()
-7) Event bubblig e capturing (stop propagation)
-8) Event delegation (accennare)
-     -->
 
-<form>
-<div>
-<label for="fname">Nome: </label>
-<input id="fname" type="text">
-</div>
-<div>
-<label for="lname">Cognome: </label>
-<input id="lname" type="text">
-</div>
-<div>
-<input id="submit" type="submit">
-</div>
-</form>
-<p></p>
+1) Cos'è un oggetto, proprieta, metodi
+2) Creare un oggetto, leggere proprietà
+3) Dot notation e bracket notation
+4) Aggiornare un oggetto
+5) La parola chiave this
 
+ -->
 
 <script>
-const form = document.querySelector('form'); // seleziona il primo <form>
-const nome = document.getElementById('fname');  // seleziona l'input con id "fname"
-const cognome = document.getElementById('lname');   // seleziona l'input con id "lname"
-const paragrafo = document.querySelector('p');  // seleziona il primo <p>
-
-form.onsubmit = function (e) { //  e = event -  .onsubmit quella funzione viene eseguita ogni volta che l’utente prova a inviare il form (ad esempio cliccando su un pulsante "submit").
-if (nome.value===''||cognome.value === ''){
-    e.preventDefault();
-    paragrafo.textContent = 'You need to fill in both names!';
+    const chiave='indirizzo';
+const persona = {
+nome: 'Luca',
+cognome: 'Rossi',
+genere: 'Maschio',
+eta: 25,
+interessi: ['snowboard', 'basket', 'picnic al parco'],
+indirizzo: {
+via: 'Piazza Roma',
+cap: '09872',
+provincia: 'MI',
+citta: 'Milano'
+},
+saluta: function(){
+console.log( `Ciao sono ${persona.nome}`)
+console.log( `Ciao sono ${this.nome}`) //this si riferisce all'oggetto corrente (persona)
 }
-}
+};
+persona.saluta(); //chiamata al metodo saluta
+console.log(persona[`interessi`][0]); //bracket notation
+console.log(persona.indirizzo.citta); //dot notation
+</script>
+</body>
 
 </script>
 </body>
