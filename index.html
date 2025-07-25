@@ -6,74 +6,67 @@
     <title>La mia pagina</title>
 </head>
 <style>
-    input{
-        display: block;
-        margin-bottom: 20px;
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
+    .prova {
+        background-color: #e0e0e0;
+        padding: 10px;
+        margin-bottom: 10px;
     }
     button {
-        background-color: #4CAF50; /* Verde */
-        color: white; /* Testo bianco */
-        padding: 10px 20px; /* Spaziatura interna */
-        border: none; /* Nessun bordo */
-        border-radius: 5px; /* Angoli arrotondati */
-        cursor: pointer; /* Puntatore a mano */
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
     }
 </style>
 <body>
 <!--
-    1) Introduzione
-    2) Async
-    3) Await
-    4) Riscriviamo le promise con async/await
-    5) Come funzione
-    6) Gestire gli errori try{}catch(e){}
-    7) Promise.all()"
-    8) Async e await nelle classi*
+    1) Window e DOM
+    2) Prendere elementi del dom
+    3) Creare e aggiungere nuovi nodi
+    4) Muovere e eliminare elementi
+    5) Manipolare lo stile
 -->
-  
+   <button id="bottone" class="prova">Bottone</button>
+<div class="prova"></div>
+<span class="prova"></span>
     <script>
-        async function hello(){
-            return ('hello');
-        }
-        console.log(hello());
 
-        hello().then((value) => {       //oppure hello().then(consel.log); 
-            console.log(value);
-        });
+//Prendere elementi
+let x = document.getElementById('bottone'); // seleziona l'elemento con id "bottone"
 
-        async function hello(){
-            return greeting = await Promise.resolve('hello');
-            console.log(greeting);
-        }
-        //codice del commit precedente
-        fetch('coffee.jpg')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.blob();
-        })
-        .then(myBlob => {
-            let objectURL = URL.createObjectURL(myBlob);
-            let image = document.createElement('img');
-            image.src = objectURL;
-            document.body.appendChild(image);
-        })
-        .catch(e => {
-            console.log('There has been a problem with your fetch operation: ' + e.message);
-        });
+let y = document.querySelector('button');   // seleziona il primo bottone nella pagina
+let z = document.querySelector('#bottone'); // seleziona il bottone con id "bottone"
+let k = document.querySelector('.prova'); // seleziona il primo elemento con classe "prova" 
 
-        async function myFetch(){
-        let response = await fetch('coffee.jpg');
-        let myBlob = await response.blob();
-        }
-        
-        //          await corrisponde a tutto il .then() della promise
-        //  .then(response => {
-        //   if (!response.ok) {
-        //   throw new Error(`HTTP error! status: ${response.status}`);
-        //   }
-        //    return response.blob();
+let w = document.querySelectorAll('.prova'); // seleziona tutti gli elementi con classe "prova"
+
+let j = document.getElementsByClassName('prova'); // seleziona tutti gli elementi con classe "prova" (HTMLCollection)
+
+//Creare nuovi nodi
+const div = document.querySelector('div'); // Creare un nuovo elemento <div>
+const paragrafo = document.createElement('p');  // Creare un nuovo elemento <p>
+paragrafo.textContent = 'Elemento creato dinamicamente.';   // Aggiungere testo al paragrafo
+div.appendChild(paragrafo);     // Aggiungere il paragrafo al div
+
+const extraTesto = document.createTextNode('Altra parte di testo come node');   // Creare un nodo di testo
+paragrafo.appendChild(extraTesto); // Aggiungere il nodo di testo al paragrafo
+
+// Spostare e rimuovere i nodi
+// document.body.appendChild(paragrafo);
+// paragrafo.removeChild(extraTesto);
+// extraTesto.remove();
 
 </script>
 </body>
