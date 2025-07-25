@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Generica</title>
+</head>
+<style>
+body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
+    .prova {
+        background-color: #e0e0e0;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    button {
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    </style>
+<body>
+    <button id="button" class="button">Bottone</button>
+    <div class="prova" style="display: flex;">
+        <p id="paragrafo">Elemento creato dinamicamente.</p>
+    </div>
+
+    <script>
+        const button = document.getElementById('button');
+        const div = document.querySelector('.prova');
+        const paragrafo = document.getElementById('paragrafo');
+
+        let testoAggiunto = false;
+
+        button.onclick = function () {
+            // Mostra il div (anche se è già visibile)
+            div.style.display = 'block';
+
+            // Aggiunge il testo extra solo la prima volta
+            if (!testoAggiunto) {
+                const extraTesto = document.createTextNode(' Altra parte di testo come node');
+                paragrafo.appendChild(extraTesto);
+                testoAggiunto = true;
+            }
+        };
+    
+
+
+    // const paragrafo = document.createElement('p');  // Creare un nuovo elemento <p>
+    
+    // paragrafo.textContent = 'Elemento creato dinamicamente.';   // Aggiungere testo al paragrafo
+    //  console.log(paragrafo); 
+    // paragrafo.appendChild(extraTesto); // Aggiungere il nodo di testo al paragrafo
+    // div.appendChild(paragrafo);
+
+    // button.onclick = function() {
+    //     div.style.display = 'block';
+    // }; 
+    // const div = document.querySelector('div'); // Creare un nuovo elemento <div>
+    // let extraTesto = document.createTextNode('Altra parte di testo come node');
+    // di.appendChild(extraTesto); // Aggiungere il nodo di testo al div
+</script>
+</body>
+</html>
