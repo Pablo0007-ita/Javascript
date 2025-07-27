@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>esercizio 3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #0c5460;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>   
+</head>
+<body>  
+<script>
+    let arrey = [];
+    const numElementi = 10;
+    const numMax = 100;
+    for (let i = 0; i < numElementi; i++) {
+      arrey.push(Math.floor(Math.random() * numMax));
+        
+    }
+    let totaleArray = 0;
+    for (let i = 0; i < arrey.length; i++) {
+        totaleArray += arrey[i];
+    }
+    const element = document.createElement('p');
+        element.textContent = `Il risultato è: ${totaleArray}`;
+        document.body.appendChild(element);
+</script>
+
+</body>
+</html>

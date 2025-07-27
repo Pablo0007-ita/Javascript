@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>esercizio 4</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #0c5460;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>   
+  <body>
+    <div>
+    <label for="">data 1</label>
+    <input type="date" id="data1">
+    </div>
+    <div>
+    <label for="">data 2</label>
+    <input type="date" id="data2">
+        </div>
+    <button onclick="calcola()">Calcola differenza</button>
+
+    <script>
+        
+        const data1 = document.getElementById('data1');
+        const data2 = document.getElementById('data2');
+        function calcola(){
+       const data1milli = new Date( data1.value).getTime();
+         const data2milli = new Date(data2.value).getTime();
+         if (data2milli < data1milli) {
+            alert("La seconda data deve essere successiva alla prima.");
+            return;
+        }
+        const differenza = (data2milli - data1milli);
+        const giorni = Math.floor(differenza / (1000 * 60 * 60 * 24));
+        const element = document.createElement('p'); 
+        element.textContent = `La differenza tra le due date è di ${giorni} giorni.`;
+        document.body.appendChild(element);
+        data1.value = '';
+        data2.value = '';
+        // Rimuovo il paragrafo dopo 3 secondi
+        setTimeout(() => {
+        const p = document.querySelector('p');
+        if (p) {
+            p.remove();
+            }
+        }, 3000);
+        }
+    </script>
+  </body>
+  </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>esercizio 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #0c5460;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>esercizio 1</h1>
+    <p > </p>
+  </header>
+  <script>
+    const oggi= new Date();
+   
+    const options = [
+    { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' },
+    { hour: '2-digit', minute: '2-digit', second: '2-digit' },
+    { weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit'}
+
+    ];
+    console.log(`Oggi è il ${oggi.toLocaleString(undefined, options,0)}`);
+
+    options.forEach(option => {
+      const element =document.createElement('p')
+      const formattedDate = oggi.toLocaleString(undefined, option);
+      const textContent = document.createTextNode(formattedDate);
+      document.body.appendChild(textContent);
+      document.querySelector('body').appendChild(element)
+    });
+  </script>
+
+  
+</body>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>esercizio 2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #0c5460;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>esercizio 2</h1>
+    <label for="num">Inserisci un numero:</label>
+    <input type="number" id="num" min="1" max="100">
+    <button id="genera">Genera</button>
+    <p></p>
+  </header>
+  <script>
+
+    // 
+    let arrey = [];
+    const numMax = 100;
+
+  const button = document.getElementById('genera');
+  button.addEventListener('click', () => {
+  // Svuoto l'array ad ogni click per evitare accumuli
+  arrey = [];
+
+  // Rimuovo eventuali paragrafi precedenti
+  document.querySelectorAll('p').forEach(p => p.remove());
+
+  const input = document.getElementById('num');
+  const numero = parseInt(input.value);
+
+  // Controllo che l'input sia un numero valido
+  if (isNaN(numero) || numero <= 0) {
+    alert("Inserisci un numero valido maggiore di 0");
+    return;
+  }
+
+  // Genero numeri casuali in base all'input dell'utente
+  for (let i = 0; i < numero; i++) { 
+    arrey.push(Math.floor(Math.random() * numMax));
+  }
+
+  // Stampo i risultati nel body
+  arrey.forEach((element,index) => {
+    const tipo = element % 2 === 0 ? 'pari' : 'dispari';
+    const p = document.createElement('p');
+    p.textContent = `Il ${index + 1}° numero: ${element} è ${tipo}.`;
+    document.body.appendChild(p);
+  });
+});
+
+
+
+
+  </script>
+</body>
+</html>
