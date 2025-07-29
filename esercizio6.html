@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>esercizio 6</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #0c5460;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+  <body>
+    </table>
+    </table>
+    <table id = "tabella">
+        <thead>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Età</th>
+            <th>Email</th>
+        </thead>
+    </table>
+    <script>
+     
+        const data =[
+            {
+                id: 1,
+                nome: "Mario Rossi",
+                eta : 30,
+                email : "mario.rossi@gmail.com"
+            },
+            {
+                id: 2,
+                nome: "Luca Bianchi",
+                eta : 25,
+                email : "lucabianchi@hotmail.it"
+            },
+            {
+                id: 3,
+                nome: "Anna Verdi",
+                eta : 28,
+                email : "anna.verdi@yahoo.it"
+            }
+
+        ]
+            const table = document.getElementById("tabella");
+            data.forEach(element => {
+                const row=document.createElement('tr')
+
+                Object.keys(element).forEach(key=> {
+                    // console.log(element[key]);})
+                    const column = document.createElement('td'); // Crea una cella per ogni chiave dell'oggetto
+                    const text = document.createTextNode(element[key]) ;// Crea un nodo di testo con il valore della chiave
+                    column .appendChild(text); // Aggiunge il nodo di testo alla cella
+                    row.appendChild(column);
+                })
+                table.appendChild(row);
+            });
+    </script>
+    
+  </body>
+</html>

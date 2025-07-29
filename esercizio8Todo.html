@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="it">  
+<head>
+  <meta charset="UTF-8">
+  <title>Esercizio 8 TODO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      background-color: #0c5460;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    #taskContainer p {
+      background-color: white;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+    #taskContainer p.completed {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lista TODO</h1>
+    <div>
+      <input type="text" id="taskInput" placeholder="Aggiungi una task...">
+      <button id="new-task-Button">Aggiungi</button>
+      <button id="clear-Btn">Pulisci</button>
+    </div>
+  </header>
+
+  <div id="taskContainer"></div>
+
+  <script>
+    class TodoList {
+      constructor() {
+        this.tasks = this.caricaTasks();
+        this.generaTask();
+      }
+
+      addTask(task) {
+        if (!task.trim()) return; // Evita task vuote
+        this.tasks.push(task);
+        localStorage.setItem("tasks", JSON.stringify(this.tasks));
+        this.generaTask();
+        console.log("Task aggiunta:", this.tasks);
+      }
+
+      concludiTask(task) {
+        const index = this.tasks.indexOf(task);
+        if (index > -1) {
+          this.tasks.splice(index, 1);
+          localStorage.setItem("tasks", JSON.stringify(this.tasks));
+          this.generaTask();
+        }
+      }
+
+      caricaTasks() {
+        return JSON.parse(localStorage.getItem("tasks")) || [];
+      }
+
+      generaTask() {
+        const taskContainer = document.getElementById("taskContainer");
+        taskContainer.innerHTML = '';
+        this.tasks.forEach(task => {
+          const p = document.createElement("p");
+          p.textContent = task;
+          p.addEventListener("click", () => {
+            p.classList.add("completed");
+            setTimeout(() => {
+              this.concludiTask(task);
+            }, 600);
+          });
+          taskContainer.appendChild(p);
+        });
+      }
+
+      clearTasks() {
+        this.tasks = [];
+        localStorage.removeItem("tasks");
+        this.generaTask();
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const newTaskBtn = document.getElementById("new-task-Button");
+      const clearBtn = document.getElementById("clear-Btn");
+      const taskInput = document.getElementById("taskInput"); 
+
+      const todoList = new TodoList();
+
+      newTaskBtn.addEventListener("click", () => {
+        todoList.addTask(taskInput.value);
+        taskInput.value = '';
+      });
+
+      clearBtn.addEventListener("click", () => {
+        todoList.clearTasks();
+        taskInput.value = '';
+      });
+
+      taskInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          todoList.addTask(taskInput.value);
+          taskInput.value = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

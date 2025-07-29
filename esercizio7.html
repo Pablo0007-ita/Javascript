@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Esercizio 7</title>
+</head>
+<body>
+  <script>
+    class Tabella {
+      constructor(nomiColonne, data) {
+        this.nomiColonne = nomiColonne;
+        this.data = data;
+        this.creaTabella();
+      }
+
+      creaTabella() {
+        const table = document.createElement('table');
+        table.appendChild(this.generaColonne());
+        table.appendChild(this.generaRighe());
+        document.body.appendChild(table);
+      }
+
+      generaColonne() {
+        const thead = document.createElement("thead");
+        const tr = document.createElement("tr");
+        this.nomiColonne.forEach((nomeColonna) => {
+          const th = document.createElement("th");
+          const text = document.createTextNode(nomeColonna);
+          th.appendChild(text);
+          tr.appendChild(th);
+        });
+        thead.appendChild(tr);
+        return thead;
+      }
+
+      generaRighe() {
+        const tbody = document.createElement("tbody");
+        this.data.forEach((riga) => {
+          const tr = document.createElement("tr");
+          this.nomiColonne.forEach((colonna) => {
+            const cella = document.createElement("td");
+            const text = document.createTextNode(riga[colonna.toLowerCase()] || "");
+            cella.appendChild(text);
+            tr.appendChild(cella);
+          });
+          tbody.appendChild(tr);
+        });
+        return tbody;
+      }
+    }
+
+    const nomiColonne1 = ["ID", "Nome", "Età", "Email"];
+    const data1 = [
+      { id: 1, nome: "Mario Rossi", età: 30, email: "mario.rossi@gmail.com" }
+    ];
+
+    const tabella1 = new Tabella(nomiColonne1, data1);
+  </script>
+</body>
+</html>
